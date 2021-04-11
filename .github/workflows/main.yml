@@ -27,7 +27,7 @@ jobs:
     - name: Code Style with pycodestyle
       run: |
         pip install pycodestyle
-        pycodestyle .py
+        pycodestyle *.py
     - name: Doc Style with pydocstyle
       run: |
         pip install pydocstyle
