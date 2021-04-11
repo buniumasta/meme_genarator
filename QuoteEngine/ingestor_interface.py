@@ -4,7 +4,7 @@ Interface used for flexible import of quotes from different sources.
 We will have more comments here.
 """
 from abc import ABC, abstractmethod
-from .QuoteMode import QuoteMode
+from .quote_mode import QuoteMode
 from typing import List
 
 
