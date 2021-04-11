@@ -22,13 +22,12 @@ jobs:
     - name: Lint with pylint
       run: |
         pip install pylint
-        pylint .
         #pylint app.py
         #pylint meme.py
     - name: Code Style with pycodestyle
       run: |
         pip install pycodestyle
-        pycodestyle *.py
+        pycodestyle .py
     - name: Doc Style with pydocstyle
       run: |
         pip install pydocstyle
