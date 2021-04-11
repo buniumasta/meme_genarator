@@ -28,8 +28,9 @@ jobs:
       run: |
         pip install pycodestyle
         pycodestyle *.py
+        pycodestyle ./QuoteEngine/*.py
     - name: Doc Style with pydocstyle
       run: |
         pip install pydocstyle
         pydocstyle *.py
-        
+        pydocstyle ./QuoteEngine/*.py        
