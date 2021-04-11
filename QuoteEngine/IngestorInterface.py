@@ -5,6 +5,7 @@ from abc import ABC, abstractmethod
 from .QuoteMode import QuoteMode
 from typing import List
 
+
 class IngestorInterface(ABC):
     """Abstract classs used Data Source for Quotes."""
 
