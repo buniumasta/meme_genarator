@@ -1,4 +1,5 @@
-#!/usr/bin/env python3
+"""Test module for quote mode object"""
+
 import unittest
 from quote_mode import QuoteMode 
 

@@ -5,7 +5,7 @@ We will have more comments here.
 """
 from abc import ABC, abstractmethod
 from typing import List
-from .quote_mode import QuoteMode
+from quote_mode import QuoteMode
 
 
 class IngestorInterface(ABC):
