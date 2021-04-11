@@ -30,6 +30,7 @@ jobs:
         pip install pycodestyle
         pycodestyle *.py
     - name: Doc Style with pydocstyle
+      run: |
         pip install pydocstyle
         pydocstyle *.py
         
