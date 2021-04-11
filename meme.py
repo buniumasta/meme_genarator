@@ -1,5 +1,5 @@
 """
-Meme Generator Functionality. 
+Meme Generator Functionality.
 
 Extract data on near-Earth objects and close approaches from CSV and JSON.
 

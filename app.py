@@ -1,5 +1,5 @@
 """
-Web Flask Application generating meme on pictures. 
+Web Flask Application generating meme on pictures.
 
 Extract data on near-Earth objects and close approaches from CSV and JSON.
 
