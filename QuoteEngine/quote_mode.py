@@ -8,3 +8,24 @@ class QuoteMode:
         """Initialize QuoteMode Objects."""
         self._quote = quote
         self._author = author
+    
+    @property
+    def quote(self) -> str:
+        """Return quote."""
+        return self._quote
+
+    @property
+    def author(self) -> str:
+        """Return author."""
+        return self._author
+    
+    @setter
+    def quote(self, quote: str):
+        """Set quote."""
+        self._quote = quote
+    
+    @setter
+    def author(self, author: str):
+        """Set author."""
+        self._author = author
+    
