@@ -4,8 +4,9 @@ Interface used for flexible import of quotes from different sources.
 We will have more comments here.
 """
 from abc import ABC, abstractmethod
-from .quote_mode import QuoteMode
 from typing import List
+from .quote_mode import QuoteMode
+
 
 
 class IngestorInterface(ABC):
