@@ -1,5 +1,7 @@
 """
 Interface used for flexible import of quotes from different sources.
+
+We will have more comments here.
 """
 from abc import ABC, abstractmethod
 from .QuoteMode import QuoteMode
@@ -11,11 +13,11 @@ class IngestorInterface(ABC):
 
     @classmethod
     def can_ingest(cls, path: str) -> bool:
-        """Checks if file extensions is supported."""
+        """Check if file extensions is supported."""
         pass
 
     @classmethod
     @abstractmethod
     def parse(cls, path: str) -> List[QuoteMode]:
-        """Parses the file and returns List of QuoteModel Objects"""
+        """Parse the file and returns List of QuoteModel Objects."""
         pass
