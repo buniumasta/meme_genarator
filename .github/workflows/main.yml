@@ -22,6 +22,7 @@ jobs:
     - name: Lint with pylint
       run: |
         pip install pylint
+        pylint ./QuoteEngine/*.py
         #pylint app.py
         #pylint meme.py
     - name: Code Style with pycodestyle
