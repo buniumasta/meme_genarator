@@ -23,5 +23,13 @@ jobs:
       run: |
         pip install pylint
         pylint .
-        pylint app.py
-        pylint meme.py
+        #pylint app.py
+        #pylint meme.py
+    - name: Code Style with pycodestyle
+      run: |
+        pip install pycodestyle
+        pycodestyle *.py
+    - name: Doc Style with pydocstyle
+        pip install pydocstyle
+        pydocstyle *.py
+        
