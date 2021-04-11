@@ -7,7 +7,7 @@ class QuoteMode:
     def __init__(self, quote: str, author: str):
         """Initialize QuoteMode Objects."""
         self._quote = quote
-        self._author = author    
+        self._author = author
     @property
     def quote(self) -> str:
         """Return quote."""
