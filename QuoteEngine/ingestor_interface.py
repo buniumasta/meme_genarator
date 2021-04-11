@@ -8,7 +8,6 @@ from typing import List
 from .quote_mode import QuoteMode
 
 
-
 class IngestorInterface(ABC):
     """Abstract classs used Data Source for Quotes."""
 
