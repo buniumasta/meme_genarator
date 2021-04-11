@@ -1,4 +1,4 @@
-name: MemeGenerator
+name: meme_generator
 
 on: [push]
 
