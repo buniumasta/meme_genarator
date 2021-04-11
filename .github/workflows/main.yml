@@ -23,3 +23,5 @@ jobs:
       run: |
         pip install pylint
         pylint .
+        pylint app.py
+        pylint meme.py
