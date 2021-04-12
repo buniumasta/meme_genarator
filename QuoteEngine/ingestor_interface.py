@@ -21,6 +21,3 @@ class IngestorInterface(ABC):
     def parse(cls, path: str) -> List[QuoteMode]:
         """Parse the file and returns List of QuoteModel Objects."""
         pass
-
-# if __name__ == '__main__':
-#     pass
