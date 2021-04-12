@@ -28,7 +28,7 @@ class QuoteMode:
     def author(self, author: str):
         """Set author."""
         self._author = author
-    
+
     def __str__(self):
         """Convert object to string"""
         return f'"{self.quote}" - {self.author}'
