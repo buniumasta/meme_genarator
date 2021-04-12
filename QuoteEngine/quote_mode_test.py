@@ -9,7 +9,7 @@ class QuoteModeTest(unittest.TestCase):
         pass
 
     def test_basic(self):
-    """Test to.string and initialization.""" 
+        """Test to.string and initialization."""
         testcase = str(QuoteMode('Take care of all your memories.','Bob Dylan'))
         expected = '"Take care of all your memories." - Bob Dylan'
         self.assertEqual(testcase, expected)
