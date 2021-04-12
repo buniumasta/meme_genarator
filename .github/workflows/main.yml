@@ -37,4 +37,4 @@ jobs:
         pydocstyle *.py
         pydocstyle ./QuoteEngine/*.py     
     - name: GitHub Action for pylint
-      uses: cclauss/GitHub-Action-for-pylint@0.7.0 args = "pip install -r requirements.txt ; pylint **/*.py"
+      uses: cclauss/GitHub-Action-for-pylint@0.7.0
