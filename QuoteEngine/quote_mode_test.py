@@ -1,7 +1,7 @@
 """Test module for quote mode object"""
 
 import unittest
-from quote_mode import QuoteMode 
+from .Quote_mode import QuoteMode
 
 class QuoteModeTest(unittest.TestCase):
     """Test Quote Mode Class."""

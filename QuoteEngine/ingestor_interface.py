@@ -5,7 +5,7 @@ We will have more comments here.
 """
 from abc import ABC, abstractmethod
 from typing import List
-from quote_mode import QuoteMode
+from .Quote_mode import QuoteMode
 
 
 class IngestorInterface(ABC):
@@ -21,3 +21,6 @@ class IngestorInterface(ABC):
     def parse(cls, path: str) -> List[QuoteMode]:
         """Parse the file and returns List of QuoteModel Objects."""
         pass
+
+# if __name__ == '__main__':
+#     pass

@@ -1,4 +1,4 @@
-"""Class stores quote and author."""
+"""Module defines QuoteMode class."""
 
 
 class QuoteMode:
@@ -32,3 +32,6 @@ class QuoteMode:
     def __str__(self):
         """Convert object to string"""
         return f'"{self.quote}" - {self.author}'
+
+# if __name__ == '__main__':
+#     pass
