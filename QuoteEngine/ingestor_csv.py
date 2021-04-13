@@ -1,5 +1,5 @@
 """Implementation of CSV stragety for ingestor class."""
-#import panda as pd
+# import panda as pd
 from .ingestor_interface import IngestorInterface
 
 
