@@ -35,3 +35,6 @@ jobs:
         pylint ./QuoteEngine/*.py --disable=W0404,C0103        
         #pylint app.py
         #pylint meme.py
+    - name: Lint with pylint
+      run: |    
+        python -m unittest
