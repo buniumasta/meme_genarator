@@ -1,15 +1,18 @@
-"""Test module for quote mode object"""
+"""Test module for quote mode object."""
 
 import unittest
 from .quote_mode import QuoteMode
 
+
 class QuoteModeTest(unittest.TestCase):
     """Test Quote Mode Class."""
+
     def setUp(self):
-        pass
+        """Set up Test Environment."""
 
     def test_basic(self):
         """Test to.string and initialization."""
-        testcase = str(QuoteMode('Take care of all your memories.','Bob Dylan'))
+        testcase = str(QuoteMode(
+            'Take care of all your memories.', 'Bob Dylan'))
         expected = '"Take care of all your memories." - Bob Dylan'
         self.assertEqual(testcase, expected)

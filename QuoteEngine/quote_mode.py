@@ -30,5 +30,5 @@ class QuoteMode:
         self._author = author
 
     def __str__(self):
-        """Convert object to string"""
+        """Convert object to string."""
         return f'"{self.quote}" - {self.author}'
