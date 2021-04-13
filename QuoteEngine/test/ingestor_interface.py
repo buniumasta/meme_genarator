@@ -16,19 +16,14 @@ class IngestorInterface(ABC):
     @classmethod
     def can_ingest(cls, path: str) -> bool:
         """Check if file extensions is supported."""
-        ext = path.split('.')[-1]
-        if ext in cls._supported_files:
-            print(f'{ext} is in supported file types')
-            return True
-        print(f'{path.split()[-1]} is NOT in supported file types')
-        return False
+        return path.split()[-1] in cls.supported_files
 
     @classmethod
     @abstractmethod
     def parse(cls, path: str) -> List[QuoteMode]:
         """Parse the file and returns List of QuoteMode Objects."""
 
-    # @property
-    # def supported_files(self) -> List[str]:
-    #     """Return supported files List."""
-    #     return self._supported_files
+    @property
+    def supported_files(self) -> List[str]:
+        """Return supported files List."""
+        return self._supported_files

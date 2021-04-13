@@ -1,20 +1,26 @@
 """Test ingestor interace class implementation."""
 import unittest
 from .ingestor_csv import CSVIngestor
+from .quote_mode import QuoteMode
+
 
 
 class Test_CSVIngestor(unittest.TestCase):
     """Test class for CSVIngestor implementation."""
 
-    @classmethod
-    def setUpClass(cls):
-        """Initialize class for test."""
-        cls.csv_ingestor = CSVIngestor('DogQuotesCSV.csv')
+    # def setUp(self):
+    #     """Initialize class for test."""
+    # def test_basic_csv(self):
+    #     """Initialization of class."""
+    #     CSVIngestor.parse('../_data/DogQuotes/DogQuotesCSV.pdf')
+    #     self.assertRaises(ValueError)
 
-    def test_basic_csv(self):
-        """Initialization of class."""
-        supported_files = self.csv_ingestor.supported_files
-        self.assertIn('csv', supported_files)
-
-# if __name__ == '__main__':
-#     unittest.main()
+    def test_file_import(self):
+        """Testing import from csv file."""
+        list_test = CSVIngestor.parse('./_data/DogQuotes/DogQuotesCSV.csv')
+        test_case = [ str(x) for x in list_test ]
+        expected = [
+            str(QuoteMode('Chase the mailman', 'Skittle')),
+            str(QuoteMode('When in doubt, go shoe-shopping', 'Mr. Paws'))]
+        self.assertEqual(expected,test_case)
+    
