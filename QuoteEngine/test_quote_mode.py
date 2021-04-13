@@ -13,6 +13,10 @@ class QuoteModeTest(unittest.TestCase):
     def test_basic(self):
         """Test to.string and initialization."""
         testcase = str(QuoteMode(
-            'Take care of all your memories.', 'Bob Dylan'))
+            'Take care of all your memories.',
+            'Bob Dylan'))
         expected = '"Take care of all your memories." - Bob Dylan'
         self.assertEqual(testcase, expected)
+
+# if __name__ == '__main__':
+#     unittest.main()

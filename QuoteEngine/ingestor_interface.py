@@ -21,9 +21,9 @@ class IngestorInterface(ABC):
     @classmethod
     @abstractmethod
     def parse(cls, path: str) -> List[QuoteMode]:
-        """Parse the file and returns List of QuoteModel Objects."""
+        """Parse the file and returns List of QuoteMode Objects."""
 
-    @classmethod
-    def supported_files(cls) -> List[str]:
+    @property
+    def supported_files(self) -> List[str]:
         """Return supported files List."""
-        return cls._supported_files
+        return self._supported_files

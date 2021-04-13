@@ -15,3 +15,6 @@ class Test_CSVIngestor(unittest.TestCase):
         """Initialization of class."""
         supported_files = self.csv_ingestor.supported_files
         self.assertIn('csv', supported_files)
+
+# if __name__ == '__main__':
+#     unittest.main()

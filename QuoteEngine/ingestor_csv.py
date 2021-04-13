@@ -11,7 +11,7 @@ class CSVIngestor(IngestorInterface):
     def __init__(self, path: str):
         """Initialize CSVIngestor class."""
         super()
-        super.supported_files.append(path.split('.')[-1])
+        self.supported_files.append(path.split('.')[-1])
 
     def parse(self, path: str) -> List[QuoteMode]:
         """Parse the given file type and return List of QuoteMode."""
