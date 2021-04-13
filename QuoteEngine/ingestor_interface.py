@@ -10,6 +10,7 @@ from .quote_mode import QuoteMode
 
 class IngestorInterface(ABC):
     """Abstract classs used Data Source for Quotes."""
+
     _supported_files = []
 
     @classmethod

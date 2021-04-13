@@ -5,6 +5,7 @@ from .ingestor_csv import CSVIngestor
 
 class Test_CSVIngestor(unittest.TestCase):
     """Test class for CSVIngestor implementation."""
+
     @classmethod
     def setUpClass(cls):
         """Initialize class for test."""
