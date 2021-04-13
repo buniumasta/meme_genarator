@@ -27,3 +27,4 @@ class IngestorInterface(ABC):
     def supported_files(self) -> List[str]:
         """Return supported files List."""
         return self._supported_files
+    # Test
