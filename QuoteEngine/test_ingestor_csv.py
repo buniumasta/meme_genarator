@@ -7,7 +7,7 @@ from .quote_mode import QuoteMode
 class Test_CSVIngestor(unittest.TestCase):
     """Test class for CSVIngestor implementation."""
 
-    def test_file_import(self):
+    def test_csv_file_import(self):
         """Testing import from csv file."""
         list_test = CSVIngestor.parse('./_data/DogQuotes/DogQuotesCSV.csv')
         test_case = [str(x) for x in list_test]
