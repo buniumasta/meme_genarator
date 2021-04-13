@@ -13,4 +13,4 @@ class Test_CSVIngestor(unittest.TestCase):
     def test_basic_csv(self):
         """Initialization of class."""
         supported_files = self.csv_ingestor.supported_files
-        self.assertIn('csv',supported_files)
+        self.assertIn('csv', supported_files)

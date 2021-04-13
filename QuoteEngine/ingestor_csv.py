@@ -15,4 +15,3 @@ class CSVIngestor(IngestorInterface):
 
     def parse(self, path: str) -> List[QuoteMode]:
         """Parse the given file type and return List of QuoteMode."""
-    
