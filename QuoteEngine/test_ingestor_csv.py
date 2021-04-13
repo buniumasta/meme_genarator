@@ -23,4 +23,4 @@ class Test_CSVIngestor(unittest.TestCase):
             str(QuoteMode('Chase the mailman', 'Skittle')),
             str(QuoteMode('When in doubt, go shoe-shopping', 'Mr. Paws'))]
         self.assertEqual(expected,test_case)
-    
+ 
