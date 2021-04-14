@@ -24,15 +24,20 @@ jobs:
         pip install pycodestyle
         pycodestyle *.py
         pycodestyle ./QuoteEngine/*.py
+        pycodestyle ./MemeGenerator/*.py
+        
     - name: Doc Style with pydocstyle
       run: |
         pip install pydocstyle
         pydocstyle *.py
         pydocstyle ./QuoteEngine/*.py
+        pydocstyle ./MemeGenerator/*.py
+        
     - name: Lint with pylint
       run: |
         pip install pylint
-        pylint ./QuoteEngine/*.py --disable=W0404,C0103        
+        pylint ./QuoteEngine/*.py --disable=W0404,C0103
+        pylint ./MemeGenerator/*.py --disable=W0404,C0103
         #pylint app.py
         #pylint meme.py
     - name: Tests with unittest
