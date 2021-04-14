@@ -18,6 +18,7 @@ You'll edit this file in Task 2.
 
 import os
 import random
+from QuoteEngine import Ingestor
 
 # @TODO Import your Ingestor and MemeEngine classes
 

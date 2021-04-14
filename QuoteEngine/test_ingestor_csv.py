@@ -6,7 +6,7 @@ from .test_helper import get_csvfile_quotemode
 # add the test to check if wrong file is not read etc...
 
 
-class Test_CSVIngestor(unittest.TestCase):
+class TestCsvIngestor(unittest.TestCase):
     """Test class for CSVIngestor implementation."""
 
     def test_csv_file_import(self):

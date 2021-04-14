@@ -4,7 +4,7 @@ from .ingestor import Ingestor
 from .test_helper import get_csvfile_quotemode
 
 
-class Test_Ingestor(unittest.TestCase):
+class TestIngestor(unittest.TestCase):
     """Test class for CSVIngestor implementation."""
 
     def test_csv_file_import(self):
