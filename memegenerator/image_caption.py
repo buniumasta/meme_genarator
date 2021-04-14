@@ -1,6 +1,6 @@
 """Module defines image with caption capability."""
+import os
 from PIL import Image
-
 
 class ImageCaption():
     """Image class."""
@@ -9,9 +9,11 @@ class ImageCaption():
         """Initialize image caption object."""
         self.image_path = image_path
         try:
-            self.image = Image.open(image_path)
+            with Image.open(image_path) as self.image:
+                path = os.getcwd()
         except OSError:
             self.image = None
+            print(f'Cannot open:{image_path}, current working directory: {path}')            
 
     def image_resize(self, width: str):
         """Re-size image to width."""
