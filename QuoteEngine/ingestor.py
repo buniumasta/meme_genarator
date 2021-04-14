@@ -7,7 +7,7 @@ from .ingestor_interface import IngestorInterface
 
 class Ingestor(IngestorInterface):
     """Strategy object importing from all known soruces."""
-    
+
     ingestors = [CSVIngestor]
 
     @classmethod
