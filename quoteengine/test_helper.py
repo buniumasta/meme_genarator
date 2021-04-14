@@ -24,6 +24,7 @@ def get_csvfile_art():
                        'you have to go after it with a club', 'Jack London'))]
     return expected
 
+
 def get_csvfile_dog():
     """Return list of string quotemode objects as it is from CSVfile."""
     expected = [
