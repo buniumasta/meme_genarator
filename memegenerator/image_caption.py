@@ -12,4 +12,3 @@ class ImageCaption():
 
     def add_caption(self, body: str, author: str):
         """Add caption to an image with random place."""
-
