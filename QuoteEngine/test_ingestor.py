@@ -1,7 +1,7 @@
 """Test ingestor interace class implementation."""
 import unittest
 from .ingestor import Ingestor
-from .quote_mode import QuoteMode
+from .test_helper import get_csvfile_quotemode
 
 
 class Test_Ingestor(unittest.TestCase):
@@ -11,7 +11,5 @@ class Test_Ingestor(unittest.TestCase):
         """Testing import from csv file."""
         list_test = Ingestor.parse('./_data/DogQuotes/DogQuotesCSV.csv')
         test_case = [str(x) for x in list_test]
-        expected = [
-            str(QuoteMode('Chase the mailman', 'Skittle')),
-            str(QuoteMode('When in doubt, go shoe-shopping', 'Mr. Paws'))]
+        expected = get_csvfile_quotemode()
         self.assertEqual(expected, test_case)

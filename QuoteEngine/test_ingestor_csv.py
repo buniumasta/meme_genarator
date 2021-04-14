@@ -1,7 +1,7 @@
 """Test ingestor interace class implementation."""
 import unittest
 from .ingestor_csv import CSVIngestor
-from .quote_mode import QuoteMode
+from .test_helper import get_csvfile_quotemode
 # add the test to check raise error if not proper file is there.
 # add the test to check if wrong file is not read etc...
 
@@ -13,7 +13,5 @@ class Test_CSVIngestor(unittest.TestCase):
         """Testing import from csv file."""
         list_test = CSVIngestor.parse('./_data/DogQuotes/DogQuotesCSV.csv')
         test_case = [str(x) for x in list_test]
-        expected = [
-            str(QuoteMode('Chase the mailman', 'Skittle')),
-            str(QuoteMode('When in doubt, go shoe-shopping', 'Mr. Paws'))]
+        expected = get_csvfile_quotemode()
         self.assertEqual(expected, test_case)
