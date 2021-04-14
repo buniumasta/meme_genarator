@@ -43,11 +43,11 @@ class TestImageCaption(unittest.TestCase):
         self.assertTrue(image.resize_needed(400))
 
     def test_check_resize_equal(self):
-        """Check condition for resize with equal"""
+        """Check condition for resize with equal."""
         image = ImageCaption('./_data/photos/dog/xander_4.jpg')
         self.assertFalse(image.resize_needed(500))
 
     def test_check_resize_bigger(self):
-        """Check condition for resize wider"""
+        """Check condition for resize wider."""
         image = ImageCaption('./_data/photos/dog/xander_4.jpg')
         self.assertTrue(image.resize_needed(600))

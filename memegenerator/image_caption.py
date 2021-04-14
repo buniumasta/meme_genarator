@@ -1,10 +1,9 @@
 """Module defines image with caption capability."""
-import os
 from PIL import Image
 
 
 class ImageCaption():
-    """Image Caption classs"""
+    """Image Caption classs."""
 
     def __init__(self, image_path):
         """Initialize image caption object."""
@@ -19,7 +18,7 @@ class ImageCaption():
         """Re-size image to width."""
 
     def resize_needed(self, width: int) -> bool:
-        """Check if resize is needed"""
+        """Return True if resize of image is needed."""
         if self.image.size[1] != width:
             return True
         return False
