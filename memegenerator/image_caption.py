@@ -1,6 +1,7 @@
 """Module defines image with caption capability."""
 from PIL import Image
 
+
 class ImageCaption():
     """Image class."""
 
@@ -20,4 +21,5 @@ class ImageCaption():
 
     def __str__(self):
         """Provides information about the picture"""
-        return  f'{self.image_path}, {self.image.format},{self.image.size}x{self.image.mode}'
+        return  f'{self.image_path}, {self.image.format},\
+            {self.image.size}x{self.image.mode}'
