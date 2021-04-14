@@ -17,7 +17,7 @@ class IngestorInterface(ABC):
     def can_ingest(cls, path: str) -> bool:
         """Check if file extensions is supported."""
         ext = path.split('.')[-1]
-        # This statetement below needs to be refactored, 
+        # This statetement below needs to be refactored,
         # after adding all options.
         if ext in cls._supported_files:
             # print(f'{ext} is in supported file types')
