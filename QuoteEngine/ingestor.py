@@ -1,4 +1,4 @@
-"""The main ingestor strategy class module"""
+"""The main ingestor strategy class module."""
 from typing import List
 from .quote_mode import QuoteMode
 from .ingestor_csv import CSVIngestor
@@ -7,6 +7,7 @@ from .ingestor_interface import IngestorInterface
 
 class Ingestor(IngestorInterface):
     """Strategy object importing from all known soruces."""
+    
     ingestors = [CSVIngestor]
 
     @classmethod
