@@ -9,6 +9,6 @@ class TestImageCaption(unittest.TestCase):
 
     def test_image_basic(self):
         """basic operation test."""
-        testcase = str(ImageCaption('./_data/photos/dog/xander_1.jpg')) 
+        testcase = str(ImageCaption('./_data/photos/dog/xander_1.jpg'))
         expected = "./_data/photos/dog/xander_1.jpg, JPEG, (500, 500)xRGB"
         self.assertEqual(expected, testcase)

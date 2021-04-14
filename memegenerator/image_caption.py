@@ -13,7 +13,7 @@ class ImageCaption():
                 path = os.getcwd()
         except OSError:
             self.image = None
-            print(f'Cannot open:{image_path}, current working directory: {path}')            
+            print(f'Cannot open:{image_path}, current working directory: {path}')
 
     def image_resize(self, width: str):
         """Re-size image to width."""
