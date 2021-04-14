@@ -23,21 +23,21 @@ jobs:
       run: |
         pip install pycodestyle
         pycodestyle *.py
-        pycodestyle ./QuoteEngine/*.py
-        pycodestyle ./MemeGenerator/*.py
+        pycodestyle ./quoteengine/*.py
+        pycodestyle ./memegenerator/*.py
         
     - name: Doc Style with pydocstyle
       run: |
         pip install pydocstyle
         pydocstyle *.py
-        pydocstyle ./QuoteEngine/*.py
-        pydocstyle ./MemeGenerator/*.py
+        pydocstyle ./quoterngine/*.py
+        pydocstyle ./memegenerator/*.py
         
     - name: Lint with pylint
       run: |
         pip install pylint
-        pylint ./QuoteEngine/*.py
-        pylint ./MemeGenerator/*.py
+        pylint ./quoterngine/*.py
+        pylint ./memegenerator/*.py
         #pylint app.py
         #pylint meme.py
     - name: Tests with unittest
