@@ -1,0 +1,1 @@
+"""Module manages pictures from."""
