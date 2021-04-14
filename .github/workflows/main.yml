@@ -36,8 +36,8 @@ jobs:
     - name: Lint with pylint
       run: |
         pip install pylint
-        pylint ./QuoteEngine/*.py --disable=W0404,C0103
-        pylint ./MemeGenerator/*.py --disable=W0404,C0103
+        pylint ./QuoteEngine/*.py
+        pylint ./MemeGenerator/*.py
         #pylint app.py
         #pylint meme.py
     - name: Tests with unittest
