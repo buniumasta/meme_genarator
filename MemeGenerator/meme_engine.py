@@ -8,7 +8,7 @@ class MemeEngine():
         """Initializes MemeEngine Object."""
         self._output_dir = output_dir
 
-    def make_meme(self, img_path, text, author, width=500) -> str:  # generated image path
+    def make_meme(self, img_path, text, author, width=500) -> str:
         """Make meme and return generated image path"""
 
     @property
