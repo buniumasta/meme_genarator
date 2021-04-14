@@ -22,4 +22,4 @@ class ImageCaption():
     def __str__(self):
         """Provide information about the picture."""
         return f'{self.image_path}, {self.image.format},' \
-            ' {self.image.size}x{self.image.mode}'
+            f' {self.image.size}x{self.image.mode}'

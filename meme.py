@@ -19,7 +19,9 @@ You'll edit this file in Task 2.
 import os
 import random
 from quoteengine import Ingestor
+from quoteengine import QuoteModel
 from memegenerator import MemeEngine
+
 
 # @TODO Import your Ingestor and MemeEngine classes
 
