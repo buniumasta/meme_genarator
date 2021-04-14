@@ -1,7 +1,7 @@
 """Module defines QuoteMode class."""
 
 
-class QuoteMode:
+class QuoteModel:
     """Class stores quote and author."""
 
     def __init__(self, quote: str = "", author: str = ""):

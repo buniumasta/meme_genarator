@@ -1,6 +1,6 @@
 """The main ingestor strategy class module."""
 from typing import List
-from .quote_mode import QuoteMode
+from .quote_model import QuoteModel
 from .ingestor_csv import CSVIngestor
 from .ingestor_interface import IngestorInterface
 
@@ -11,7 +11,7 @@ class Ingestor(IngestorInterface):
     ingestors = [CSVIngestor]
 
     @classmethod
-    def parse(cls, path: str) -> List[QuoteMode]:
+    def parse(cls, path: str) -> List[QuoteModel]:
         """Parse the given file type and return List of QuoteMode."""
         for ingestor in cls.ingestors:
             if ingestor.can_ingest(path):

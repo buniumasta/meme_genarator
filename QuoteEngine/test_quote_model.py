@@ -1,7 +1,7 @@
 """Test module for quote mode object."""
 
 import unittest
-from .quote_mode import QuoteMode
+from .quote_model import QuoteModel
 
 
 class QuoteModeTest(unittest.TestCase):
@@ -12,7 +12,7 @@ class QuoteModeTest(unittest.TestCase):
 
     def test_basic(self):
         """Test to.string and initialization."""
-        testcase = str(QuoteMode(
+        testcase = str(QuoteModel(
             'Take care of all your memories.',
             'Bob Dylan'))
         expected = '"Take care of all your memories." - Bob Dylan'
