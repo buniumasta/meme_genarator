@@ -11,7 +11,7 @@ def get_csvfile_quotemode():
         str(QuoteModel('Every child is an artist. '
                        'The problem is how to remain '
                        'an artist once we grow up', 'Pablo Picasso')),
-        str(QuoteModel('You don’t take a photograph - 
+        str(QuoteModel('You don’t take a photograph - '
                        'you make it', 'Ansel Adams')),
         str(QuoteModel('Art enables us to find ourselves '
                        'and lose ourselves at the same time',
