@@ -2,6 +2,7 @@
 import os
 from PIL import Image
 
+
 class ImageCaption():
     """Image class."""
 
@@ -13,7 +14,7 @@ class ImageCaption():
                 path = os.getcwd()
         except OSError:
             self.image = None
-            print(f'Cannot open:{image_path}, current working directory: {path}')
+            print(f'Cannot open:{image_path}, cwd: {path}')
 
     def image_resize(self, width: str):
         """Re-size image to width."""
