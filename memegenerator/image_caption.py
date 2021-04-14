@@ -20,6 +20,6 @@ class ImageCaption():
         """Add caption to an image with random place."""
 
     def __str__(self):
-        """Provides information about the picture."""
+        """Provide information about the picture."""
         return f'{self.image_path}, {self.image.format},' \
             ' {self.image.size}x{self.image.mode}'
