@@ -30,13 +30,13 @@ jobs:
       run: |
         pip install pydocstyle
         pydocstyle *.py
-        pydocstyle ./quoterngine/*.py
+        pydocstyle ./quoteengine/*.py
         pydocstyle ./memegenerator/*.py
         
     - name: Lint with pylint
       run: |
         pip install pylint
-        pylint ./quoterngine/*.py
+        pylint ./quoteengine/*.py
         pylint ./memegenerator/*.py
         #pylint app.py
         #pylint meme.py
