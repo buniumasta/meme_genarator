@@ -2,7 +2,7 @@
 from .quote_model import QuoteModel
 
 
-def get_csvfile_quotemode():
+def get_csvfile_art():
     """Return list of string quotemode objects as it is from CSVfile."""
     expected = [
         str(QuoteModel('Every artist was first an amateur',
@@ -22,4 +22,11 @@ def get_csvfile_quotemode():
                        'you’ll never reach it', 'Salvador Dali')),
         str(QuoteModel('You can’t wait for inspiration - '
                        'you have to go after it with a club', 'Jack London'))]
+    return expected
+
+def get_csvfile_dog():
+    """Return list of string quotemode objects as it is from CSVfile."""
+    expected = [
+        str(QuoteModel('Chase the mailman', 'Skittle')),
+        str(QuoteModel('When in doubt, go shoe-shopping', 'Mr. Paws'))]
     return expected
