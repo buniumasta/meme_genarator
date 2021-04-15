@@ -22,7 +22,6 @@ from flask import Flask, render_template, abort, request
 from quoteengine import Ingestor
 from memegenerator import MemeEngine
 
-# @TODO Import your Ingestor and MemeEngine classes, Will Do.
 
 app = Flask(__name__)
 
