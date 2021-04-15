@@ -42,7 +42,7 @@ class MemeEngine():
                 y_dim = randint(0,img.size[1]-textsize[3])
                 draw.multiline_text((x_dim,y_dim), quote, font=font, align='right', fill='white')
 
-        img_path = self._output_dir + '/' + str(randint(10000000,9999999)) + '.jpg'
+        img_path = self._output_dir + '/' + str(randint(1000000,9999999)) + '.jpg'
         img.save(img_path)
         return img_path
 

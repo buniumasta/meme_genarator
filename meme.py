@@ -61,9 +61,20 @@ def generate_meme(path=None, body=None, author=None):
 
 if __name__ == "__main__":
     parser = ArgumentParser("Meme Generator - add caption to pictures")
-    parser.add_argument('--path', default=None, help='path to an image file')
-    parser.add_argument('--body', default=None, help='quote body to add to the image')
-    parser.add_argument('--author', default=None, help='quote author to add to the image')
+
+    parser.add_argument(
+        '--path',
+        default=None,
+        help='path to an image file')
+    parser.add_argument(
+        '--body',
+        default=None,
+        help='quote body to add to the image')
+    parser.add_argument(
+        '--author',
+        default=None,
+        help='quote author to add to the image')
+
     args = parser.parse_args()
     path_img = generate_meme(args.path, args.body, args.author)
     print(f"I've generated following file: {path_img}")
