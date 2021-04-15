@@ -54,19 +54,9 @@ def setup():
     print(quote)
     return quote, img
 
-
-
-
-
 @app.route('/')
 def meme_rand():
     """Generate a random meme."""
-    # @TODO:
-    # Use the random python standard library class to:
-    # 1. select a random image from imgs array
-    # 2. select a random quote from the quotes array
-    #img = random.choice(imgs)
-    #quote = random.choice(quotes)
     quote, img = setup()
 
     path = meme.make_meme(img, quote.body, quote.author)
