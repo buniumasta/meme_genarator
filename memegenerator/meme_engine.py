@@ -3,6 +3,8 @@ import os
 from random import randint
 from PIL import Image, ImageDraw, ImageFont
 
+FONT='./_data/fonts/Caveat-Bold.ttf'
+
 class MemeEngine():
     """MemeEngine class generates meme on pictures."""
 
@@ -24,7 +26,7 @@ class MemeEngine():
 
             if text is not None:
                 draw = ImageDraw.Draw(img)
-                font = ImageFont.truetype('./_data/fonts/Caveat-Bold.ttf', size=30)
+                font = ImageFont.truetype(FONT, size=30)
                 quote = text + '\n' + author
                 textsize = draw.textbbox(
                     (0,0),
