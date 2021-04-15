@@ -3,8 +3,6 @@ import unittest
 from .ingestor_csv import CSVIngestor
 from .test_helper import get_csvfile_dog
 from .test_helper import get_csvfile_art
-# add the test to check raise error if not proper file is there.
-# add the test to check if wrong file is not read etc...
 
 
 class TestCsvIngestor(unittest.TestCase):
@@ -23,3 +21,5 @@ class TestCsvIngestor(unittest.TestCase):
         test_case = [str(x) for x in list_test]
         expected = get_csvfile_art()
         self.assertEqual(expected, test_case)
+        # add the test to check raise error if not proper file is there.
+        # add the test to check if wrong file is not read etc...
