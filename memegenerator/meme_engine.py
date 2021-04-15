@@ -3,7 +3,8 @@ import os
 from random import randint
 from PIL import Image, ImageDraw, ImageFont
 
-FONT='./_data/fonts/Caveat-Bold.ttf'
+
+FONT = './_data/fonts/Caveat-Bold.ttf'
 
 class MemeEngine():
     """MemeEngine class generates meme on pictures."""
@@ -28,7 +29,7 @@ class MemeEngine():
                 draw = ImageDraw.Draw(img)
                 font = ImageFont.truetype(FONT, size=30)
                 quote = text + '\n' + author
-                textsize = draw.textbbox(
+                textsize = draw.textbbox( 
                     (0,0),
                     quote,
                     font=font,
@@ -38,11 +39,16 @@ class MemeEngine():
                     direction=None,
                     features=None,
                     language=None,
-                    stroke_width=0,
-                    embedded_color=False)
-                x_dim = randint(0,img.size[0]-textsize[2])
-                y_dim = randint(0,img.size[1]-textsize[3])
-                draw.multiline_text((x_dim,y_dim), quote, font=font, align='right', fill='white')
+                    stroke_width = 0,
+                    embedded_color = False)
+                x_dim = randint(0, img.size[0]-textsize[2])
+                y_dim = randint(0, img.size[1]-textsize[3])
+                draw.multiline_text(
+                    (x_dim,y_dim),
+                    quote,
+                    font=font,
+                    align='right',
+                    fill='white')
 
         img_path = self._output_dir + '/' + str(randint(1000000,9999999)) + '.jpg'
         img.save(img_path)
