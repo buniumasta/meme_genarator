@@ -6,6 +6,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 FONT = './_data/fonts/Caveat-Bold.ttf'
 
+
 class MemeEngine():
     """MemeEngine class generates meme on pictures."""
 
@@ -49,7 +50,7 @@ class MemeEngine():
                     font=font,
                     align='right',
                     fill='white')
-        random_str=str(randint(1000000, 9999999))
+        random_str = str(randint(1000000, 9999999))
         img_path = self._output_dir + '/' + random_str + '.jpg'
         img.save(img_path)
         return img_path
