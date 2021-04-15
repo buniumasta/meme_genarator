@@ -55,7 +55,8 @@ class MemeEngine():
         try:
             img.save(img_path)
         except ValueError:
-            print('The output format could not be determined from the file name.')
+            print('The output format could not be'
+                  ' determined from the file name.')
             return None
         except OSError:
             print('The file could not be written.')
