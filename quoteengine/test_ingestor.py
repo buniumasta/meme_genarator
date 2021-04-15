@@ -3,7 +3,6 @@ import unittest
 from .ingestor import Ingestor
 from .test_helper import get_csvfile_dog
 
-# Add test for empty file.
 
 class TestIngestor(unittest.TestCase):
     """Test class for CSVIngestor implementation."""
@@ -14,3 +13,4 @@ class TestIngestor(unittest.TestCase):
         test_case = [str(x) for x in list_test]
         expected = get_csvfile_dog()
         self.assertEqual(expected, test_case)
+        # Add test for empty file.
