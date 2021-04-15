@@ -4,25 +4,25 @@
 class QuoteModel:
     """Class stores quote and author."""
 
-    def __init__(self, quote: str = "", author: str = ""):
+    def __init__(self, body: str = "", author: str = ""):
         """Initialize QuoteMode Objects."""
-        self._quote = quote
+        self._body = body
         self._author = author
 
     @property
-    def quote(self) -> str:
+    def body(self) -> str:
         """Return quote."""
-        return self._quote
+        return self._body
 
     @property
     def author(self) -> str:
         """Return author."""
         return self._author
 
-    @quote.setter
-    def quote(self, quote: str):
+    @body.setter
+    def body(self, body: str):
         """Set quote."""
-        self._quote = quote
+        self._body = body
 
     @author.setter
     def author(self, author: str):
@@ -31,8 +31,8 @@ class QuoteModel:
 
     def __str__(self):
         """Convert object to string."""
-        return f'"{self.quote}" - {self.author}'
+        return f'"{self.body}" - {self.author}'
 
     def __repr__(self):
         """Object Representation."""
-        return f'"{self.quote}" - {self.author}'
+        return f'"{self.body}" - {self.author}'
