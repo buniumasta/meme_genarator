@@ -29,8 +29,8 @@ class MemeEngine():
                 draw = ImageDraw.Draw(img)
                 font = ImageFont.truetype(FONT, size=30)
                 quote = text + '\n' + author
-                textsize = draw.textbbox( 
-                    (0,0),
+                textsize = draw.textbbox(
+                    (0, 0),
                     quote,
                     font=font,
                     anchor=None,
@@ -39,18 +39,18 @@ class MemeEngine():
                     direction=None,
                     features=None,
                     language=None,
-                    stroke_width = 0,
-                    embedded_color = False)
+                    stroke_width=0,
+                    embedded_color=False)
                 x_dim = randint(0, img.size[0]-textsize[2])
                 y_dim = randint(0, img.size[1]-textsize[3])
                 draw.multiline_text(
-                    (x_dim,y_dim),
+                    (x_dim, y_dim),
                     quote,
                     font=font,
                     align='right',
                     fill='white')
-
-        img_path = self._output_dir + '/' + str(randint(1000000,9999999)) + '.jpg'
+        random_str=str(randint(1000000, 9999999))
+        img_path = self._output_dir + '/' + random_str + '.jpg'
         img.save(img_path)
         return img_path
 
