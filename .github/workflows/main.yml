@@ -39,7 +39,7 @@ jobs:
         pylint ./quoteengine/*.py
         pylint ./memegenerator/*.py
         #pylint app.py
-        #pylint meme.py
+        pylint meme.py
     - name: Tests with unittest
       run: |    
         python -m unittest
