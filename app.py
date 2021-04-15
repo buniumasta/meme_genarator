@@ -53,6 +53,7 @@ def setup():
     print(quote)
     return quote, img
 
+
 @app.route('/')
 def meme_rand():
     """Generate a random meme."""
