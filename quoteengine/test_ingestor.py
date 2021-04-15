@@ -3,6 +3,7 @@ import unittest
 from .ingestor import Ingestor
 from .test_helper import get_csvfile_dog
 
+# Add test for empty file.
 
 class TestIngestor(unittest.TestCase):
     """Test class for CSVIngestor implementation."""

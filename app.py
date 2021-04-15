@@ -40,18 +40,22 @@ def setup():
 
     for quote_file in quote_files:
         quote_list_tmp = Ingestor.parse(quote_file)
-        quotes_list.append(quote_list_tmp)
+        if quote_list_tmp is not None:
+            quotes_list.extend(quote_list_tmp)
 
     images_path = "./_data/photos/dog/"
 
-    # TODO: Use the pythons standard library os class to find all
-    # images within the images images_path directory
-    imgs = None
+    for root, _, files in os.walk(images_path):
+        images = [os.path.join(root, name) for name in files]
 
-    return quotes, imgs
+    img = random.choice(images)
+    print(img)
+    quote = random.choice(quotes_list)
+    print(quote)
+    return quote, img
 
 
-quotes, imgs = setup()
+
 
 
 @app.route('/')
@@ -61,9 +65,10 @@ def meme_rand():
     # Use the random python standard library class to:
     # 1. select a random image from imgs array
     # 2. select a random quote from the quotes array
+    #img = random.choice(imgs)
+    #quote = random.choice(quotes)
+    quote, img = setup()
 
-    img = None
-    quote = None
     path = meme.make_meme(img, quote.body, quote.author)
     return render_template('meme.html', path=path)
 

@@ -52,7 +52,14 @@ class MemeEngine():
                     fill='white')
         random_str = str(randint(1000000, 9999999))
         img_path = self._output_dir + '/' + random_str + '.jpg'
-        img.save(img_path)
+        try:
+            img.save(img_path)
+        except ValueError:
+            print('The output format could not be determined from the file name.')
+            return None
+        except OSError:
+            print('The file could not be written.')
+            return None
         return img_path
 
     @property
