@@ -21,7 +21,8 @@ class DOCXIngestor(IngestorInterface):
         quotemode_list = []
         for line in document.paragraphs:
             if line != "":
-                line.split(',')
-            quote_author = QuoteModel(line['body'], row['author'])
-            quotemode_list.append(quote_author)
+                elems = line.split('_')
+                print(elems)
+                quote_author = QuoteModel(elems[0].strip(), elems[1].strip())
+                quotemode_list.append(quote_author)
         return quotemode_list
