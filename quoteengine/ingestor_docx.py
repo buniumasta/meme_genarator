@@ -1,5 +1,6 @@
 """Implementation of Docx stragety for ingestor class."""
 from typing import List
+from python_docx import Document
 from .ingestor_interface import IngestorInterface
 from .quote_model import QuoteModel
 
