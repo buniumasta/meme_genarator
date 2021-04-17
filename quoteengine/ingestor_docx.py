@@ -20,8 +20,8 @@ class DOCXIngestor(IngestorInterface):
         document = Document('./_data/DogQuotes/DogQuotesDOCX.docx') 
         quotemode_list = []
         for line in document.paragraphs:
-            if line != "":
-                elems = line.split('_')
+            if line.text != "":
+                elems = line.text.split(' - ')
                 print(elems)
                 quote_author = QuoteModel(elems[0].strip(), elems[1].strip())
                 quotemode_list.append(quote_author)
