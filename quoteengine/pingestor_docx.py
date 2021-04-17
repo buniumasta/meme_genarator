@@ -1,6 +1,6 @@
 """Implementation of Docx stragety for ingestor class."""
 from typing import List
-from python_docx import Document
+from docx import Document
 from .ingestor_interface import IngestorInterface
 from .quote_model import QuoteModel
 
@@ -17,9 +17,11 @@ class DOCXIngestor(IngestorInterface):
             print('File not known')
             return []
 
-        data_frame = pd.read_csv(path, header=0)
+        document = Document('./_data/DogQuotes/DogQuotesDOCX.docx') 
         quotemode_list = []
-        for _, row in data_frame.iterrows():
-            quote_author = QuoteModel(row['body'], row['author'])
+        for line in document.paragraphs:
+            if line != "":
+                line.split(',')
+            quote_author = QuoteModel(line['body'], row['author'])
             quotemode_list.append(quote_author)
         return quotemode_list
