@@ -35,8 +35,8 @@ def get_csvfile_dog():
 def get_docxfile_dog():
     """Return list of string quotemode objects as it is from DOCXfile."""
     expected = [
-        str(QuoteModel('Bark like no one’s listening', 'Rex')),
-        str(QuoteModel('RAWRGWAWGGR', 'Chewy')),
-        str(QuoteModel('Life is like peanut butter: crunchy', 'Peanut')),
-        str(QuoteModel('Channel your inner husky', 'Tiny'))]
+        str(QuoteModel('"Bark like no one’s listening"', 'Rex')),
+        str(QuoteModel('"RAWRGWAWGGR"', 'Chewy')),
+        str(QuoteModel('"Life is like peanut butter: crunchy"', 'Peanut')),
+        str(QuoteModel('"Channel your inner husky"', 'Tiny'))]
     return expected
