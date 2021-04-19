@@ -31,3 +31,21 @@ def get_csvfile_dog():
         str(QuoteModel('Chase the mailman', 'Skittle')),
         str(QuoteModel('When in doubt, go shoe-shopping', 'Mr. Paws'))]
     return expected
+
+
+def get_docxfile_dog():
+    """Return list of string quotemode objects as it is from DOCXfile."""
+    expected = [
+        str(QuoteModel('"Bark like no one’s listening"', 'Rex')),
+        str(QuoteModel('"RAWRGWAWGGR"', 'Chewy')),
+        str(QuoteModel('"Life is like peanut butter: crunchy"', 'Peanut')),
+        str(QuoteModel('"Channel your inner husky"', 'Tiny'))]
+    return expected
+
+
+def get_txtfile_dog():
+    """Return list of string quotemode objects as it is from DOCXfile."""
+    expected = [
+        str(QuoteModel('To bork or not to bork', 'Bork')),
+        str(QuoteModel('He who smelt it...', 'Stinky'))]
+    return expected

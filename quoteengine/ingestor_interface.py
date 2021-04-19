@@ -30,7 +30,7 @@ class IngestorInterface(ABC):
     def parse(cls, path: str) -> List[QuoteModel]:
         """Parse the file and returns List of QuoteMode Objects."""
 
-    # @property
+    # @classmethod
     # def supported_files(self) -> List[str]:
     #     """Return supported files List."""
     #     return self._supported_files

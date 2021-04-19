@@ -12,9 +12,8 @@ class CSVIngestor(IngestorInterface):
 
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
-        """Parse the given file type and return List of QuoteMode."""
+        """Parse the csv file and return List of QuoteMode."""
         if not cls.can_ingest(path):
-            print('File not known')
             return []
 
         data_frame = pd.read_csv(path, header=0)
