@@ -22,4 +22,3 @@ class CSVIngestor(IngestorInterface):
             quote_author = QuoteModel(row['body'], row['author'])
             quotemode_list.append(quote_author)
         return quotemode_list
-

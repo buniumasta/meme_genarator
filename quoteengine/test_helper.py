@@ -47,5 +47,5 @@ def get_txtfile_dog():
     """Return list of string quotemode objects as it is from DOCXfile."""
     expected = [
         str(QuoteModel('To bork or not to bork', 'Bork')),
-        str(QuoteModel('He who smelt it...', 'Stinky')),]
+        str(QuoteModel('He who smelt it...', 'Stinky'))]
     return expected
