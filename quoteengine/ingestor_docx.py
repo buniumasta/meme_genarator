@@ -22,7 +22,7 @@ class DOCXIngestor(IngestorInterface):
         for line in document.paragraphs:
             if line.text != "":
                 elems = line.text.split(' - ')
-                #print(elems)
+                # print(elems)
                 quote_author = QuoteModel(elems[0].strip(), elems[1].strip())
                 quotemode_list.append(quote_author)
         return quotemode_list
