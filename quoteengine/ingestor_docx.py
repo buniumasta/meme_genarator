@@ -17,7 +17,7 @@ class DOCXIngestor(IngestorInterface):
             print('File not known')
             return []
 
-        document = Document('./_data/DogQuotes/DogQuotesDOCX.docx') 
+        document = Document('./_data/DogQuotes/DogQuotesDOCX.docx')
         quotemode_list = []
         for line in document.paragraphs:
             if line.text != "":
