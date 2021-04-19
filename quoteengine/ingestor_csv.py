@@ -12,7 +12,7 @@ class CSVIngestor(IngestorInterface):
 
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
-        """Parse the given file type and return List of QuoteMode."""
+        """Parse the csv file and return List of QuoteMode."""
         if not cls.can_ingest(path):
             return []
 
@@ -22,3 +22,4 @@ class CSVIngestor(IngestorInterface):
             quote_author = QuoteModel(row['body'], row['author'])
             quotemode_list.append(quote_author)
         return quotemode_list
+

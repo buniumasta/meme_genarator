@@ -12,7 +12,7 @@ class DOCXIngestor(IngestorInterface):
 
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
-        """Parse the given file type and return List of QuoteMode."""
+        """Parse the docx file and return List of QuoteMode."""
         if not cls.can_ingest(path):
             return []
 

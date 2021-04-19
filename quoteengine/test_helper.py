@@ -41,3 +41,11 @@ def get_docxfile_dog():
         str(QuoteModel('"Life is like peanut butter: crunchy"', 'Peanut')),
         str(QuoteModel('"Channel your inner husky"', 'Tiny'))]
     return expected
+
+
+def get_txtfile_dog():
+    """Return list of string quotemode objects as it is from DOCXfile."""
+    expected = [
+        str(QuoteModel('To bork or not to bork', 'Bork')),
+        str(QuoteModel('He who smelt it...', 'Stinky')),]
+    return expected
