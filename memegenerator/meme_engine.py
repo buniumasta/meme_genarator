@@ -46,7 +46,7 @@ class MemeEngine():
                     x_dim=0
                 else:
                     x_dim = randint(0, img.size[0]-textsize[2])
-                if im.size[1]-textsize[3] < 0:
+                if img.size[1]-textsize[3] < 0:
                     y_dim=0
                 else:
                     y_dim = randint(0, img.size[1]-textsize[3])
