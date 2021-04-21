@@ -44,8 +44,20 @@ def get_docxfile_dog():
 
 
 def get_txtfile_dog():
-    """Return list of string quotemode objects as it is from DOCXfile."""
+    """Return list of string quotemode objects as it is from TXTfile."""
     expected = [
         str(QuoteModel('To bork or not to bork', 'Bork')),
         str(QuoteModel('He who smelt it...', 'Stinky'))]
+    return expected
+
+
+def get_pdffile_dog():
+    """Return list of string quotemode objects as it is from PDFfile."""
+    expected = [
+        str(QuoteModel('"Treat yo self"', 'Fluffles')),
+        str(QuoteModel('"Life is like a box of treats"', 'Forrest Pup')),
+        str(QuoteModel(
+            "\"It's the size of the fight in the dog\"",
+            'Bark Twain'))
+        ]
     return expected

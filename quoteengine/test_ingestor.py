@@ -4,6 +4,7 @@ from .ingestor import Ingestor
 from .test_helper import get_csvfile_dog
 from .test_helper import get_docxfile_dog
 from .test_helper import get_txtfile_dog
+from .test_helper import get_pdffile_dog
 
 
 class TestIngestor(unittest.TestCase):
@@ -29,4 +30,11 @@ class TestIngestor(unittest.TestCase):
         list_test = Ingestor.parse('./_data/DogQuotes/DogQuotesTXT.txt')
         test_case = [str(x) for x in list_test]
         expected = get_txtfile_dog()
+        self.assertEqual(expected, test_case)
+
+    def testf_pdf_file_import(self):
+        """Testing import from pdf file."""
+        list_test = Ingestor.parse('./_data/DogQuotes/DogQuotesPDF.pdf')
+        test_case = [str(x) for x in list_test]
+        expected = get_pdffile_dog()
         self.assertEqual(expected, test_case)

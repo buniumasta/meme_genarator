@@ -4,13 +4,14 @@ from .quote_model import QuoteModel
 from .ingestor_csv import CSVIngestor
 from .ingestor_docx import DOCXIngestor
 from .ingestor_txt import TXTIngestor
+from .ingestor_pdf import PDFIngestor
 from .ingestor_interface import IngestorInterface
 
 
 class Ingestor(IngestorInterface):
     """Strategy object importing from all known soruces."""
 
-    ingestors = [CSVIngestor, DOCXIngestor, TXTIngestor]
+    ingestors = [CSVIngestor, DOCXIngestor, TXTIngestor, PDFIngestor]
 
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
