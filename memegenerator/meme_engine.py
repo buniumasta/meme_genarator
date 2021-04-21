@@ -42,8 +42,14 @@ class MemeEngine():
                     language=None,
                     stroke_width=0,
                     embedded_color=False)
-                x_dim = randint(0, img.size[0]-textsize[2])
-                y_dim = randint(0, img.size[1]-textsize[3])
+                if img.size[0]-textsize[2] < 0:
+                    x_dim=0
+                else:
+                    x_dim = randint(0, img.size[0]-textsize[2])
+                if im.size[1]-textsize[3] < 0:
+                    y_dim=0
+                else:
+                    y_dim = randint(0, img.size[1]-textsize[3])
                 draw.multiline_text(
                     (x_dim, y_dim),
                     quote,
