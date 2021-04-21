@@ -27,7 +27,9 @@ class PDFIngestor(IngestorInterface):
                     if len(line) > 1:
                         # this line may be re-factored consider regexx
                         row = line.strip().split('-')
-                        quote_author = QuoteModel(row[0].strip(), row[1].strip())
+                        quote_author = QuoteModel(
+                            row[0].strip(),
+                            row[1].strip())
                         quotemode_list.append(quote_author)
             return quotemode_list
 

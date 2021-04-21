@@ -56,6 +56,8 @@ def get_pdffile_dog():
     expected = [
         str(QuoteModel('"Treat yo self"', 'Fluffles')),
         str(QuoteModel('"Life is like a box of treats"', 'Forrest Pup')),
-        str(QuoteModel("\"It's the size of the fight in the dog\"", 'Bark Twain'))
+        str(QuoteModel(
+            "\"It's the size of the fight in the dog\"",
+            'Bark Twain'))
         ]
     return expected
