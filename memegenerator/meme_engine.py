@@ -42,7 +42,12 @@ class MemeEngine():
                     language=None,
                     stroke_width=0,
                     embedded_color=False)
-                if img.size[0]-textsize[2] < 0:
+                diff_x = img.size[0]-textsize[2]
+                print(quote)
+                print(img)
+                print('diff_x = img.size[0] - textsize[2]')
+                print('{diff_x} = {img.size[0]} - {textsize[2]}')
+                if diff_x < 0:
                     x_dim=0
                 else:
                     x_dim = randint(0, img.size[0]-textsize[2])
