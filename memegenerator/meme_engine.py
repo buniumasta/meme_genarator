@@ -55,7 +55,7 @@ class MemeEngine():
                 if  diff_y < 0:
                     y_dim=0
                 else:
-                    y_dim = randint(0, img.size[1]-textsize[3])
+                    y_dim = randint(0, diff_y)
                 draw.multiline_text(
                     (x_dim, y_dim),
                     quote,
