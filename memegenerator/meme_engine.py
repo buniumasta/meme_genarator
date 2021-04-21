@@ -46,7 +46,7 @@ class MemeEngine():
                 print(quote)
                 print(img)
                 print('diff_x = img.size[0] - textsize[2]')
-                print('{diff_x} = {img.size[0]} - {textsize[2]}')
+                print(f'{diff_x} = {img.size[0]} - {textsize[2]}')
                 if diff_x < 0:
                     x_dim=0
                 else:
