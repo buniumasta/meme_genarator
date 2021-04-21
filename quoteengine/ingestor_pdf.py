@@ -16,12 +16,12 @@ class PDFIngestor(IngestorInterface):
         """Parse the PDF file and return List of QuoteMode."""
         if not cls.can_ingest(path):
             return []
-        try:
-            run(["pdftotext", "-layout", "-eol", "unix", path], check=True)
-            newpath_tuple = splitext(path)
-            new_path = newpath_tuple[0] + '.txt'
-            quotemode_list = []
+        run(["pdftotext", "-layout", "-eol", "unix", path], check=True)
+        newpath_tuple = splitext(path)
+        new_path = newpath_tuple[0] + '.txt'
+        quotemode_list = []
 
+        try:
             with open(new_path) as file:
                 for line in file.readlines():
                     if len(line) > 1:
@@ -37,5 +37,5 @@ class PDFIngestor(IngestorInterface):
             print(f'PDF cannot be found {exc}')
             return []
         except IndexError as exc:
-            print(f'PDF cannot be read - wrong file structure {exc}')
+            print(f'PDF cannot be parsed - wrong file structure {path}')
             return []
