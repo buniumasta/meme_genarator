@@ -20,6 +20,7 @@ class MemeEngine():
         """Make meme and return generated image path."""
         with Image.open(img_path) as img:
             # if crop is not None:
+            # Add try & catch if image is not ok
             #     img = img.crop(crop)
             if width is not None:
                 ratio = width/float(img.size[0])
@@ -36,20 +37,15 @@ class MemeEngine():
                     font=font,
                     anchor=None,
                     spacing=4,
-                    align='right',
-                    direction=None,
-                    features=None,
-                    language=None,
-                    stroke_width=0,
-                    embedded_color=False)
-                diff_x = int(img.size[0]-textsize[2])
+                    align='right')
 
+                diff_x = int(img.size[0]-textsize[2])
                 if diff_x < 0:
                     x_dim=0
                 else:
                     x_dim = randint(0, diff_x)
-                diff_y = int(img.size[1]-textsize[3])
 
+                diff_y = int(img.size[1]-textsize[3])
                 if  diff_y < 0:
                     y_dim=0
                 else:
@@ -61,6 +57,7 @@ class MemeEngine():
                     font=font,
                     align='right',
                     fill='white')
+
         random_str = str(randint(1000000, 9999999))
         img_path = self._output_dir + '/' + random_str + '.jpg'
         try:

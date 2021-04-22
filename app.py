@@ -20,7 +20,9 @@ import os
 import requests
 from flask import Flask, render_template, abort, request
 from quoteengine import Ingestor
+from quoteengine import QuoteModel
 from memegenerator import MemeEngine
+from shutil import copyfileobj
 
 
 app = Flask(__name__)
@@ -72,16 +74,50 @@ def meme_form():
 @app.route('/create', methods=['POST'])
 def meme_post():
     """Create a user defined meme."""
-    # @TODO:
+
     # 1. Use requests to save the image from the image_url
     #    form param to a temp local file.
+
+    image_url = request.form['image_url']
+    body = request.form['body']
+    author = request.form['author']
+    print(f'image_url={image_url}')
+    print(f'body={body}')
+    print(f'author={author}')
+
     # 2. Use the meme object to generate a meme using this temp
     #    file and the body and author form paramaters.
-    # 3. Remove the temporary saved image.
-    path = None
+    img = download_image(image_url)
+    if img:
+        quote = QuoteModel(body, author)
+        mymeme = MemeEngine('./static')
+        path = mymeme.make_meme(img, quote.body, quote.author)
+        # 3. Remove the temporary saved image.
+        os.remove(img)
+    else:
+        quote = QuoteModel("We couldn't download\n an image from provided URL", "Admin Artist")
+        mymeme = MemeEngine('./static')
+        img = './_data/photos/broken/pexels-pixabay-209235.jpeg'
+        path = mymeme.make_meme(img, quote.body, quote.author)
 
     return render_template('meme.html', path=path)
 
+
+def download_image(image_url:str):
+    """Download image from Internet"""
+    filename = './static/' + image_url.split("/")[-1]
+    req_image = requests.get(image_url, stream = True)
+
+    if req_image.status_code == 200:
+        req_image.raw.decode_content = True
+
+        with open(filename,'wb') as file:
+            copyfileobj(req_image.raw, file)
+        print('Image sucessfully Downloaded: ',filename)
+        return filename
+    else:
+        print('Image Couldn\'t be retreived')
+        return None
 
 if __name__ == "__main__":
     app.run()
