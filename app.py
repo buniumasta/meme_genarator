@@ -17,12 +17,13 @@ You'll edit this file in Task 2.
 """
 import random
 import os
+from shutil import copyfileobj
 import requests
 from flask import Flask, render_template, abort, request
+from PIL import UnidentifiedImageError
 from quoteengine import Ingestor
 from quoteengine import QuoteModel
 from memegenerator import MemeEngine
-from shutil import copyfileobj
 
 
 app = Flask(__name__)
@@ -32,10 +33,10 @@ meme = MemeEngine('./static')
 
 def setup():
     """Load all resources."""
-    quote_files = ['./_data/DogQuotes/DogQuotesTXT.txt',
-                   './_data/DogQuotes/DogQuotesDOCX.docx',
-                   './_data/DogQuotes/DogQuotesPDF.pdf',
-                   './_data/DogQuotes/DogQuotesCSV.csv']
+    quote_files = ['./_data/ArtQuotes/ArtQuotesTXT.txt',
+                   './_data/ArtQuotes/ArtQuotesDOCX.docx',
+                   # './_data/ArtQuotes/ArtQuotesPDF.pdf',
+                   './_data/ArtQuotes/ArtQuotesCSV.csv']
 
     quotes_list = []
 
@@ -43,8 +44,10 @@ def setup():
         quote_list_tmp = Ingestor.parse(quote_file)
         if quote_list_tmp is not None:
             quotes_list.extend(quote_list_tmp)
+    
+    print(quotes_list)
 
-    images_path = "./_data/photos/dog/"
+    images_path = "./_data/photos/art/"
 
     for root, _, files in os.walk(images_path):
         images = [os.path.join(root, name) for name in files]
@@ -74,50 +77,51 @@ def meme_form():
 @app.route('/create', methods=['POST'])
 def meme_post():
     """Create a user defined meme."""
-
     # 1. Use requests to save the image from the image_url
     #    form param to a temp local file.
 
     image_url = request.form['image_url']
     body = request.form['body']
     author = request.form['author']
-    print(f'image_url={image_url}')
-    print(f'body={body}')
-    print(f'author={author}')
-
     # 2. Use the meme object to generate a meme using this temp
     #    file and the body and author form paramaters.
-    img = download_image(image_url)
-    if img:
-        quote = QuoteModel(body, author)
-        mymeme = MemeEngine('./static')
-        path = mymeme.make_meme(img, quote.body, quote.author)
+    try:
+        img = download_image(image_url)
+        if img:
+            quote = QuoteModel(body, author)
+            mymeme = MemeEngine('./static')
+            path = mymeme.make_meme(img, quote.body, quote.author)
         # 3. Remove the temporary saved image.
-        os.remove(img)
-    else:
-        quote = QuoteModel("We couldn't download\n an image from provided URL", "Admin Artist")
+            os.remove(img)
+    except (requests.exceptions.ConnectionError,
+            FileNotFoundError,
+            UnidentifiedImageError
+            ) as exc:
+        quote = QuoteModel("We couldn't download"
+                           " an image from provided URL", "Admin")
         mymeme = MemeEngine('./static')
         img = './_data/photos/broken/pexels-pixabay-209235.jpeg'
         path = mymeme.make_meme(img, quote.body, quote.author)
+        print(exc)
 
     return render_template('meme.html', path=path)
 
 
-def download_image(image_url:str):
-    """Download image from Internet"""
+def download_image(image_url: str):
+    """Download image from Internet."""
     filename = './static/' + image_url.split("/")[-1]
-    req_image = requests.get(image_url, stream = True)
+    req_image = requests.get(image_url, stream=True)
 
     if req_image.status_code == 200:
         req_image.raw.decode_content = True
 
-        with open(filename,'wb') as file:
+        with open(filename, 'wb') as file:
             copyfileobj(req_image.raw, file)
-        print('Image sucessfully Downloaded: ',filename)
+        print('Image sucessfully Downloaded: ', filename)
         return filename
-    else:
-        print('Image Couldn\'t be retreived')
-        return None
+    print('Image Couldn\'t be retreived')
+    raise FileNotFoundError('Image could be downloaded')
+
 
 if __name__ == "__main__":
     app.run()

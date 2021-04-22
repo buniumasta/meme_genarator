@@ -25,7 +25,7 @@ class TXTIngestor(IngestorInterface):
 
         except FileNotFoundError:
             print(f'File: "{path}" cannot be found, txt will not be processed')
-            return []
+            return quotemode_list
         except IndexError:
             print(f'File: "{path}" cannot be parsed - wrong file structure')
-            return []
+            return quotemode_list
