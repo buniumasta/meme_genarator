@@ -44,7 +44,7 @@ def setup():
         quote_list_tmp = Ingestor.parse(quote_file)
         if quote_list_tmp is not None:
             quotes_list.extend(quote_list_tmp)
-    
+
     print(quotes_list)
 
     images_path = "./_data/photos/art/"
