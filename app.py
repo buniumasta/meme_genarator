@@ -37,7 +37,7 @@ def setup():
             quotes_list.extend(quote_list_tmp)
 
     print(quotes_list)
-
+    print(f'I have following number of quots {len(quotes_list)}')
     images_path = "./_data/photos/art/"
 
     for root, _, files in os.walk(images_path):
