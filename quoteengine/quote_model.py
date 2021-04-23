@@ -50,8 +50,8 @@ class QuoteModel:
                     linebreaks.append(index)
                     word_len = 0
             if len(linebreaks) > 0:
-                added_breaks=0
+                added_breaks = 0
                 for linebreak in linebreaks:
-                    words.insert(linebreak+added_breaks+1,'\n')
-                    added_breaks+=1
+                    words.insert(linebreak+added_breaks+1, '\n')
+                    added_breaks += 1
                 self.body = ' '.join(words)
