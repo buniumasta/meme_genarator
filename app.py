@@ -52,20 +52,36 @@ def setup():
     for root, _, files in os.walk(images_path):
         images = [os.path.join(root, name) for name in files]
 
-    img = random.choice(images)
-    print(img)
-    quote = random.choice(quotes_list)
-    print(quote)
+    if len(images) > 0:
+        img = random.choice(images)
+        print(img)
+    else:
+        raise FileNotFoundError("I cannot find any images")
+
+    if len(quotes_list) > 0:
+        quote = random.choice(quotes_list)
+        print(quote)
+    else:
+        raise FileNotFoundError("I cannot find any quotes")
     return quote, img
 
 
 @app.route('/')
 def meme_rand():
     """Generate a random meme."""
-    quote, img = setup()
+    try:
+        quote, img = setup()
 
-    path = meme.make_meme(img, quote.body, quote.author)
-    return render_template('meme.html', path=path)
+        path = meme.make_meme(img, quote.body, quote.author)
+        return render_template('meme.html', path=path)
+
+    except FileNotFoundError as exc:
+        quote = QuoteModel("We couldn't open files", "Admin")
+        mymeme = MemeEngine('./static')
+        img = './_data/photos/broken/pexels-pixabay-209235.jpeg'
+        path = mymeme.make_meme(img, quote.body, quote.author)
+        print(exc)
+        return render_template('meme.html', path=path)
 
 
 @app.route('/create', methods=['GET'])

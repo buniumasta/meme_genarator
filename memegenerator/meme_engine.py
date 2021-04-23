@@ -1,7 +1,7 @@
 """Meme generator Engine."""
 import os
 from random import randint
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, UnidentifiedImageError
 
 
 FONT = './_data/fonts/Caveat-Bold.ttf'
@@ -19,44 +19,48 @@ class MemeEngine():
 
     def make_meme(self, img_path, text, author, width=500) -> str:
         """Make meme and return generated image path."""
-        with Image.open(img_path) as image:
+        try:
+            with Image.open(img_path) as image:
+                self.img = image
+                if width is not None:
+                    self.re_size(width)
 
-            self.img = image
-            if width is not None:
-                self.re_size(width)
+                if text is not None:
+                    draw = ImageDraw.Draw(self.img)
+                    font = ImageFont.truetype(FONT, size=30)
+                    quote = text + '\n' + author
+                    textsize = draw.textbbox(
+                        (0, 0),
+                        quote,
+                        font=font,
+                        anchor=None,
+                        spacing=4,
+                        align='right')
 
-            if text is not None:
-                draw = ImageDraw.Draw(self.img)
-                font = ImageFont.truetype(FONT, size=30)
-                quote = text + '\n' + author
-                textsize = draw.textbbox(
-                    (0, 0),
-                    quote,
-                    font=font,
-                    anchor=None,
-                    spacing=4,
-                    align='right')
+                    diff_x = int(self.img.size[0]-textsize[2])
+                    if diff_x < 0:
+                        x_dim = 0
+                    else:
+                        x_dim = randint(0, diff_x)
 
-                diff_x = int(self.img.size[0]-textsize[2])
-                if diff_x < 0:
-                    x_dim = 0
-                else:
-                    x_dim = randint(0, diff_x)
+                    diff_y = int(self.img.size[1]-textsize[3])
+                    if diff_y < 0:
+                        y_dim = 0
+                    else:
+                        y_dim = randint(0, diff_y)
 
-                diff_y = int(self.img.size[1]-textsize[3])
-                if diff_y < 0:
-                    y_dim = 0
-                else:
-                    y_dim = randint(0, diff_y)
+                    draw.multiline_text(
+                        (x_dim, y_dim),
+                        quote,
+                        font=font,
+                        align='right',
+                        fill='white')
 
-                draw.multiline_text(
-                    (x_dim, y_dim),
-                    quote,
-                    font=font,
-                    align='right',
-                    fill='white')
+                return self.image_save()
 
-        return self.image_save()
+        except UnidentifiedImageError as exception:
+            print(f'I could recognize the pic: {exception}')
+            return './static/_error.jpg'
 
     def re_size(self, width: int) -> Image:
         """Resize image to given width."""
