@@ -14,9 +14,39 @@ Example picture:
 
 ### instructions for setting up and running the program.
 
+#### Installation:
+  * clone repository
+  * create virtual environment
+  * install dependencies, all of them are listed in requirements txt 
+  * install [Xpdf](https://www.xpdfreader.com/download.html)
+  * run unittest [python -m3 unittest]
+
+Application can run in two modes: command line & web mode.
+
+### Command Line:
+
+```
+(venv) meme_genarator % python3 meme.py -h
+usage: Meme Generator - add caption to pictures [-h] [--path PATH] [--body BODY] [--author AUTHOR]
+
+optional arguments:
+  -h, --help       show this help message and exit
+  --path PATH      path to an image file
+  --body BODY      quote body to add to the image
+  --author AUTHOR  quote author to add to the image
+(venv) 
+```
+
+### Web App
+
+Run application: 
+
+```
+(venv) meme_genarator % python3 app.py
+```
+open web browser, and go to localhost and port 5000.
 
 
-a brief description of the roles-and-responsibilities of all sub-modules including dependencies and examples of how to use the module
 
 ### Modules
 #### Quote Engine
