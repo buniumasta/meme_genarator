@@ -12,8 +12,8 @@ Example picture:
 
 ![Alt text](./_data/example.jpeg?raw=true "Meme")
 
-Application was published under:
-[MemeGenerator](https://intense-bayou-36829.herokuapp.com/
+## Application was published under following link:
+* [MemeGenerator](https://intense-bayou-36829.herokuapp.com/)
 
 ### instructions for setting up and running the program.
 
