@@ -23,9 +23,7 @@ class MemeEngine():
             # Add try & catch if image is not ok
             #     img = img.crop(crop)
             if width is not None:
-                ratio = width/float(img.size[0])
-                height = int(ratio*float(img.size[1]))
-                img = img.resize((width, height), Image.NEAREST)
+                img=self.re_size(img, width)
 
             if text is not None:
                 draw = ImageDraw.Draw(img)
@@ -59,8 +57,15 @@ class MemeEngine():
                     fill='white')
         return self.image_save(img)
 
+    def re_size(self, img: Image, width: int) -> Image:
+        """resize image to given width."""
+        ratio = width/float(img.size[0])
+        height = int(ratio*float(img.size[1]))
+        img = img.resize((width, height), Image.NEAREST)
+        return img
+
     def image_save(self, img: Image) -> str:
-        """Saves image to the disk."""
+        """Save image to the disk."""
         random_str = str(randint(1000000, 9999999))
         img_path = self._output_dir + '/' + random_str + '.jpg'
         try:
