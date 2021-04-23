@@ -32,9 +32,9 @@ class TestIngestor(unittest.TestCase):
         expected = get_txtfile_dog()
         self.assertEqual(expected, test_case)
 
-    def testf_pdf_file_import(self):
-        """Testing import from pdf file."""
-        list_test = Ingestor.parse('./_data/DogQuotes/DogQuotesPDF.pdf')
-        test_case = [str(x) for x in list_test]
-        expected = get_pdffile_dog()
-        self.assertEqual(expected, test_case)
+    # def testf_pdf_file_import(self):
+    #     """Testing import from pdf file."""
+    #     list_test = Ingestor.parse('./_data/DogQuotes/DogQuotesPDF.pdf')
+    #     test_case = [str(x) for x in list_test]
+    #     expected = get_pdffile_dog()
+    #     self.assertEqual(expected, test_case)
