@@ -24,10 +24,10 @@ meme = MemeEngine('./static')
 
 def setup():
     """Load all resources."""
-    quote_files = [ './_data/ArtQuotes/ArtQuotesTXT.txt',
-                    './_data/ArtQuotes/ArtQuotesDOCX.docx',
-                    './_data/ArtQuotes/ArtQuotesPDF.pdf',
-                    './_data/ArtQuotes/ArtQuotesCSV.csv']
+    quote_files = ['./_data/ArtQuotes/ArtQuotesTXT.txt',
+                   './_data/ArtQuotes/ArtQuotesDOCX.docx',
+                   './_data/ArtQuotes/ArtQuotesPDF.pdf',
+                   './_data/ArtQuotes/ArtQuotesCSV.csv']
 
     quotes_list = []
 
