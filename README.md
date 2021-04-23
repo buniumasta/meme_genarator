@@ -12,7 +12,8 @@ The Quote Engine module is responsible for ingesting many types of files that co
 
 ## Ingestors
 An abstract base class, IngestorInterface defines two methods:
-```def can_ingest(cls, path: str) -> boolean
+```
+def can_ingest(cls, path: str) -> boolean
 def parse(cls, path: str) -> List[QuoteModel]
 ```
 Strategy objects realizes IngestorInterface for each file type (csv, docx, pdf, txt).
