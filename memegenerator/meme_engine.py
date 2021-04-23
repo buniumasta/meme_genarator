@@ -15,6 +15,7 @@ class MemeEngine():
         if not os.path.exists(output_dir):
             os.mkdir(output_dir)
         self._output_dir = output_dir
+        self._image = None
 
     def make_meme(self, img_path, text, author, width=500) -> str:
         """Make meme and return generated image path."""
@@ -82,3 +83,8 @@ class MemeEngine():
     def output_dir(self) -> str:
         """Return output_dir."""
         return self._output_dir
+
+    @image.setter
+    def image(self, image: Image):
+        """Set image."""
+        self._iamge = image
