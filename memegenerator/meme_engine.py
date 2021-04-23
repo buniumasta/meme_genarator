@@ -57,7 +57,7 @@ class MemeEngine():
         return self.image_save(img)
 
     def re_size(self, img: Image, width: int) -> Image:
-        """resize image to given width."""
+        """Resize image to given width."""
         ratio = width/float(img.size[0])
         height = int(ratio*float(img.size[1]))
         img = img.resize((width, height), Image.NEAREST)
