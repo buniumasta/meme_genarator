@@ -1,19 +1,10 @@
 """
 Web Flask Application generating meme on pictures.
 
-Extract data on near-Earth objects and close approaches from CSV and JSON.
+Extract data on quote_model objects from CSV, Doc, PDF and JSON files.
+Then exctracted data (author & quote) are places randomly on pictures.
 
-The `load_neos` function extracts NEO data from a CSV file, formatted as
-described in the project instructions, into a collection of `NearEarthObject`s.
-
-The `load_approaches` function extracts close approach data from a JSON file,
-formatted as described in the project instructions, into a collection of
-`CloseApproach` objects.
-
-The main module calls these functions with the arguments provided at the
-command line, and uses the resulting collections to build an `NEODatabase`.
-
-You'll edit this file in Task 2.
+Web application uses quoteengine and memegenerator modules.
 """
 import random
 import os
@@ -33,10 +24,10 @@ meme = MemeEngine('./static')
 
 def setup():
     """Load all resources."""
-    quote_files = ['./_data/ArtQuotes/ArtQuotesTXT.txt',
-                   './_data/ArtQuotes/ArtQuotesDOCX.docx',
-                   # './_data/ArtQuotes/ArtQuotesPDF.pdf',
-                   './_data/ArtQuotes/ArtQuotesCSV.csv']
+    quote_files = [ './_data/ArtQuotes/ArtQuotesTXT.txt',
+                    './_data/ArtQuotes/ArtQuotesDOCX.docx',
+                    './_data/ArtQuotes/ArtQuotesPDF.pdf',
+                    './_data/ArtQuotes/ArtQuotesCSV.csv']
 
     quotes_list = []
 
@@ -107,8 +98,10 @@ def meme_post():
             quote = QuoteModel(body, author)
             mymeme = MemeEngine('./static')
             path = mymeme.make_meme(img, quote.body, quote.author)
-        # 3. Remove the temporary saved image.
+
+            # 3. Remove the temporary saved image.
             os.remove(img)
+
     except (requests.exceptions.ConnectionError,
             FileNotFoundError,
             UnidentifiedImageError
