@@ -1,6 +1,6 @@
 ## Meme Generator
 
-
+![Alt text](./_data/example.jpeg?raw=true "Meme")
 
 ## an overview of the project.
 
