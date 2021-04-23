@@ -4,7 +4,7 @@ from .ingestor import Ingestor
 from .test_helper import get_csvfile_dog
 from .test_helper import get_docxfile_dog
 from .test_helper import get_txtfile_dog
-from .test_helper import get_pdffile_dog
+# from .test_helper import get_pdffile_dog
 
 
 class TestIngestor(unittest.TestCase):
