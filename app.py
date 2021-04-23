@@ -2,7 +2,7 @@
 Web Flask Application generating meme on pictures.
 
 Extract data on quote_model objects from CSV, Doc, PDF and JSON files.
-Then exctracted data (author & quote) are places randomly on pictures.
+Then exctracted data (author & quote) are placed randomly on pictures.
 
 Web application uses quoteengine and memegenerator modules.
 """
