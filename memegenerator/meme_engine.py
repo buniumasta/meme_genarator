@@ -19,11 +19,9 @@ class MemeEngine():
     def make_meme(self, img_path, text, author, width=500) -> str:
         """Make meme and return generated image path."""
         with Image.open(img_path) as img:
-            # if crop is not None:
-            # Add try & catch if image is not ok
-            #     img = img.crop(crop)
+
             if width is not None:
-                img=self.re_size(img, width)
+                img = self.re_size(img, width)
 
             if text is not None:
                 draw = ImageDraw.Draw(img)
@@ -55,6 +53,7 @@ class MemeEngine():
                     font=font,
                     align='right',
                     fill='white')
+
         return self.image_save(img)
 
     def re_size(self, img: Image, width: int) -> Image:
