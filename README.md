@@ -65,5 +65,5 @@ The Meme Engine Module is responsible for manipulating and drawing text onto ima
 
 ### Main application 
 
-meme.py - command line interface
-app.py - web application
+* meme.py - command line interface
+* app.py - web application
