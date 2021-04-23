@@ -57,11 +57,15 @@ class MemeEngine():
                     font=font,
                     align='right',
                     fill='white')
+        return self.image_save(img)
 
+    def image_save(self, img: Image) -> str:
+        """Saves image to the disk."""
         random_str = str(randint(1000000, 9999999))
         img_path = self._output_dir + '/' + random_str + '.jpg'
         try:
             img.save(img_path)
+            return img_path
         except ValueError:
             print('The output format could not be'
                   ' determined from the file name.')
@@ -69,7 +73,6 @@ class MemeEngine():
         except OSError:
             print('The file could not be written.')
             return None
-        return img_path
 
     @property
     def output_dir(self) -> str:
