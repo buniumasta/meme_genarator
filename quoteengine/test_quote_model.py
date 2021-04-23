@@ -15,5 +15,5 @@ class QuoteModeTest(unittest.TestCase):
         testcase = str(QuoteModel(
             'Take care of all your memories.',
             'Bob Dylan'))
-        expected = '"Take care of all your memories." - Bob Dylan'
+        expected = '"Take care of all your memories. \n" - Bob Dylan'
         self.assertEqual(testcase, expected)

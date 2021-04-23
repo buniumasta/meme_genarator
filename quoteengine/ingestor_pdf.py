@@ -1,6 +1,6 @@
 """Implementation of PDF stragety for ingestor class."""
 from typing import List
-from subprocess import run
+from subprocess import run, CalledProcessError
 from os.path import splitext
 from .ingestor_interface import IngestorInterface
 from .quote_model import QuoteModel
@@ -16,12 +16,11 @@ class PDFIngestor(IngestorInterface):
         """Parse the PDF file and return List of QuoteMode."""
         if not cls.can_ingest(path):
             return []
-        run(["pdftotext", "-layout", "-eol", "unix", path], check=True)
-        newpath_tuple = splitext(path)
-        new_path = newpath_tuple[0] + '.txt'
-        quotemode_list = []
-
         try:
+            run(["pdftotext", "-layout", "-eol", "unix", path], check=True)
+            newpath_tuple = splitext(path)
+            new_path = newpath_tuple[0] + '.txt'
+            quotemode_list = []
             with open(new_path) as file:
                 for line in file.readlines():
                     if len(line) > 1:
@@ -38,4 +37,7 @@ class PDFIngestor(IngestorInterface):
             return []
         except IndexError as exc:
             print(f'PDF cannot be parsed - wrong file structure {path}')
+            return []
+        except CalledProcessError as exc:
+            print(f'PDF cannot converted by xpdf {path}')
             return []

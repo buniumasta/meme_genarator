@@ -8,6 +8,7 @@ class QuoteModel:
         """Initialize QuoteMode Objects."""
         self._body = body
         self._author = author
+        self.add_line(28)
 
     @property
     def body(self) -> str:
@@ -36,3 +37,21 @@ class QuoteModel:
     def __repr__(self):
         """Object Representation."""
         return f'"{self.body}" - {self.author}'
+
+    def add_line(self, max_length):
+        """Split body into lines."""
+        if len(self.body) > max_length:
+            words = self.body.split(' ')
+            word_len = 0
+            linebreaks = []
+            for index, word in enumerate(words):
+                word_len += len(word) + 1
+                if word_len > max_length:
+                    linebreaks.append(index)
+                    word_len = 0
+            if len(linebreaks) > 0:
+                added_breaks = 0
+                for linebreak in linebreaks:
+                    words.insert(linebreak+added_breaks+1, '\n')
+                    added_breaks += 1
+                self.body = ' '.join(words)

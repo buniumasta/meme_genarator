@@ -1,19 +1,10 @@
 """
 Web Flask Application generating meme on pictures.
 
-Extract data on near-Earth objects and close approaches from CSV and JSON.
+Extract data on quote_model objects from CSV, Doc, PDF and JSON files.
+Then exctracted data (author & quote) are placed randomly on pictures.
 
-The `load_neos` function extracts NEO data from a CSV file, formatted as
-described in the project instructions, into a collection of `NearEarthObject`s.
-
-The `load_approaches` function extracts close approach data from a JSON file,
-formatted as described in the project instructions, into a collection of
-`CloseApproach` objects.
-
-The main module calls these functions with the arguments provided at the
-command line, and uses the resulting collections to build an `NEODatabase`.
-
-You'll edit this file in Task 2.
+Web application uses quoteengine and memegenerator modules.
 """
 import random
 import os
@@ -35,7 +26,7 @@ def setup():
     """Load all resources."""
     quote_files = ['./_data/ArtQuotes/ArtQuotesTXT.txt',
                    './_data/ArtQuotes/ArtQuotesDOCX.docx',
-                   # './_data/ArtQuotes/ArtQuotesPDF.pdf',
+                   './_data/ArtQuotes/ArtQuotesPDF.pdf',
                    './_data/ArtQuotes/ArtQuotesCSV.csv']
 
     quotes_list = []
@@ -46,26 +37,42 @@ def setup():
             quotes_list.extend(quote_list_tmp)
 
     print(quotes_list)
-
+    print(f'I have following number of quots {len(quotes_list)}')
     images_path = "./_data/photos/art/"
 
     for root, _, files in os.walk(images_path):
         images = [os.path.join(root, name) for name in files]
 
-    img = random.choice(images)
-    print(img)
-    quote = random.choice(quotes_list)
-    print(quote)
+    if len(images) > 0:
+        img = random.choice(images)
+        print(img)
+    else:
+        raise FileNotFoundError("I cannot find any images")
+
+    if len(quotes_list) > 0:
+        quote = random.choice(quotes_list)
+        print(quote)
+    else:
+        raise FileNotFoundError("I cannot find any quotes")
     return quote, img
 
 
 @app.route('/')
 def meme_rand():
     """Generate a random meme."""
-    quote, img = setup()
+    try:
+        quote, img = setup()
 
-    path = meme.make_meme(img, quote.body, quote.author)
-    return render_template('meme.html', path=path)
+        path = meme.make_meme(img, quote.body, quote.author)
+        return render_template('meme.html', path=path)
+
+    except FileNotFoundError as exc:
+        quote = QuoteModel("We couldn't open files", "Admin")
+        mymeme = MemeEngine('./static')
+        img = './_data/photos/broken/pexels-pixabay-209235.jpeg'
+        path = mymeme.make_meme(img, quote.body, quote.author)
+        print(exc)
+        return render_template('meme.html', path=path)
 
 
 @app.route('/create', methods=['GET'])
@@ -91,8 +98,10 @@ def meme_post():
             quote = QuoteModel(body, author)
             mymeme = MemeEngine('./static')
             path = mymeme.make_meme(img, quote.body, quote.author)
-        # 3. Remove the temporary saved image.
+
+            # 3. Remove the temporary saved image.
             os.remove(img)
+
     except (requests.exceptions.ConnectionError,
             FileNotFoundError,
             UnidentifiedImageError
