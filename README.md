@@ -1,7 +1,5 @@
 ## Meme Generator
 
-![Alt text](./_data/example.jpeg?raw=true "Meme")
-
 ## an overview of the project.
 
 .![meme_genarator](https://github.com/buniumasta/meme_genarator/actions/workflows/main.yml/badge.svg)
@@ -10,6 +8,9 @@ Meme Generator is a multimedia application to dynamically generate memes, includ
 
 Dynamic user input is accepted through command-line tool and web service.
 
+Example picture:
+
+![Alt text](./_data/example.jpeg?raw=true "Meme")
 ## instructions for setting up and running the program.
 
 
