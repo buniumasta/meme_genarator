@@ -48,9 +48,9 @@ open web browser, and go to localhost and port 5000.
 
 
 
-### Modules
-#### Quote Engine
-The Quote Engine module is responsible for ingesting many types of files that contain quotes: body and author.
+### Quote Engine Module
+
+The Quote Engine module is responsible for ingesting many types of files that contain quotes and store them in quote_model objects.
 
 #### Ingestors
 An abstract base class, IngestorInterface defines two methods:
@@ -62,3 +62,8 @@ Strategy objects realizes IngestorInterface for each file type (csv, docx, pdf, 
 
 ### Meme Engine Module
 The Meme Engine Module is responsible for manipulating and drawing text onto images. It uses PIL module.
+
+### Main application 
+
+meme.py - command line interface
+app.py - web application
