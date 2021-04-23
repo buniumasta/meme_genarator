@@ -1,8 +1,6 @@
 ## Meme Generator
 
-![Alt text](./_data/example.jpeg?raw=true "Meme")
-
-## an overview of the project.
+### an overview of the project.
 
 .![meme_genarator](https://github.com/buniumasta/meme_genarator/actions/workflows/main.yml/badge.svg)
 
@@ -10,16 +8,21 @@ Meme Generator is a multimedia application to dynamically generate memes, includ
 
 Dynamic user input is accepted through command-line tool and web service.
 
-## instructions for setting up and running the program.
+Example picture:
+
+![Alt text](./_data/example.jpeg?raw=true "Meme")
+
+### instructions for setting up and running the program.
 
 
-## a brief description of the roles-and-responsibilities of all sub-modules including dependencies and examples of how to use the module
 
-## Modules
-### Quote Engine
+a brief description of the roles-and-responsibilities of all sub-modules including dependencies and examples of how to use the module
+
+### Modules
+#### Quote Engine
 The Quote Engine module is responsible for ingesting many types of files that contain quotes: body and author.
 
-### Ingestors
+#### Ingestors
 An abstract base class, IngestorInterface defines two methods:
 ```
 def can_ingest(cls, path: str) -> boolean
