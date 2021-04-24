@@ -12,7 +12,7 @@ def gen_ppt(img_path, mytxt):
     slide = prs.slides.add_slide(title_slide_layout)
     title = slide.shapes.title
     subtitle = slide.placeholders[1]
-    title.text = "This world is nothing wihtout art."
+    title.text = "This world is nothing without art."
     subtitle.text = "if there is not Art, there is no Life."
 
     ############### Picture Slide #########
@@ -35,7 +35,7 @@ def gen_ppt(img_path, mytxt):
     txBox = slide.shapes.add_textbox(left, top, width, height)
     tf = txBox.text_frame
 
-    tf.text = "The Picture on previous slide is captioned with quotation - the same text is used on this slide as well. See below \n" + mytxt
+    tf.text = "The Picture on previous slide is captioned with quotation. \nThe same text is used on this slide as well. See below \n" + mytxt
 
     p = tf.add_paragraph()
     p.text = '"' + mytxt + '" \n\n\nThis text can be parsed in any way, for example can be reversed: \n' + mytxt[::-1] 
