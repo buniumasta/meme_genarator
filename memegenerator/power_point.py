@@ -35,8 +35,7 @@ def gen_ppt(img_path, mytxt):
     txBox = slide.shapes.add_textbox(left, top, width, height)
     tf = txBox.text_frame
 
-    tf.text = """The Picture on previous slide is captioned with sentence. 
-    \n The same text is used on this slide as well. See below \n' + mytxt"""
+    tf.text = "The Picture on previous slide is captioned with sentence. \n The same text is used on this slide as well. See below \n" + mytxt
 
     p = tf.add_paragraph()
     p.text = '"' + mytxt + '" \nThis text can be parsed in any way, for example can be reversed: \n' + mytxt[::-1] 
