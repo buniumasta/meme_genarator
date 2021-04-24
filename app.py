@@ -10,11 +10,12 @@ import random
 import os
 from shutil import copyfileobj
 import requests
-from flask import Flask, render_template, abort, request
+from flask import Flask, render_template, abort, request, send_file
 from PIL import UnidentifiedImageError
 from quoteengine import Ingestor
 from quoteengine import QuoteModel
 from memegenerator import MemeEngine
+from memegenerator import gen_ppt
 
 
 app = Flask(__name__)
@@ -64,7 +65,8 @@ def meme_rand():
         quote, img = setup()
 
         path = meme.make_meme(img, quote.body, quote.author)
-        return render_template('meme.html', path=path)
+        pathppt = gen_ppt(path, quote.body)
+        return render_template('meme.html', path=path, pathppt=pathppt)
 
     except FileNotFoundError as exc:
         quote = QuoteModel("We couldn't open files", "Admin")
@@ -72,7 +74,7 @@ def meme_rand():
         img = './_data/photos/broken/pexels-pixabay-209235.jpeg'
         path = mymeme.make_meme(img, quote.body, quote.author)
         print(exc)
-        return render_template('meme.html', path=path)
+        return render_template('meme.html', path=path, pathppt=pathppt)
 
 
 @app.route('/create', methods=['GET'])
@@ -98,6 +100,7 @@ def meme_post():
             quote = QuoteModel(body, author)
             mymeme = MemeEngine('./static')
             path = mymeme.make_meme(img, quote.body, quote.author)
+
 
             # 3. Remove the temporary saved image.
             os.remove(img)
