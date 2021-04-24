@@ -100,7 +100,7 @@ def meme_post():
             quote = QuoteModel(body, author)
             mymeme = MemeEngine('./static')
             path = mymeme.make_meme(img, quote.body, quote.author)
-
+            pathppt = gen_ppt(path, quote.body)
 
             # 3. Remove the temporary saved image.
             os.remove(img)
@@ -116,7 +116,7 @@ def meme_post():
         path = mymeme.make_meme(img, quote.body, quote.author)
         print(exc)
 
-    return render_template('meme.html', path=path)
+    return render_template('meme.html', path=path, pathppt=pathppt)
 
 
 def download_image(image_url: str):
