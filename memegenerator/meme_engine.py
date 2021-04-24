@@ -12,8 +12,8 @@ class MemeEngine():
 
     def __init__(self, output_dir: str):
         """Initialize MemeEngine Object."""
-        # if not os.path.exists(output_dir):
-        #     os.mkdir(output_dir)
+        if not os.path.exists(output_dir):
+            os.mkdir(output_dir)
         self._output_dir = output_dir
         self._img = None
 
