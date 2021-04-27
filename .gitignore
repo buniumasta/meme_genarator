@@ -131,3 +131,7 @@ dmypy.json
 #tmp folder with pictures
 tmp
 static
+
+#Ingone mcOS file
+.DS_STORE
+
