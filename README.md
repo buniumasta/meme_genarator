@@ -2,7 +2,6 @@
 
 ### an overview of the project.
 
-.![meme_genarator](https://github.com/buniumasta/meme_genarator/actions/workflows/main.yml/badge.svg)
 
 Meme Generator is a multimedia application to dynamically generate memes, including an image with an overlaid quote. Content - the quotes are spread in a variety of filetypes: PDF/DOCX/CSV/TXT. Application manipulates pictures by adding quote and author to it and save it to the disc.
 
